@@ -1,0 +1,49 @@
+openapi: 3.0.0
+info:
+  title: URL Shortener
+  description: REST API for Shortening URL
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:3000
+  - url: https://urlshortener-cj8y.onrender.com
+paths:
+  /:
+    post:
+      summary: Create a Shortened URL
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                url:
+                  type: string
+                  format: uri
+                  example: "https://example.com"
+
+      responses:
+        "201":
+          description: Returned Shortened URL
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  shortenedUrl:
+                    type: string
+                    format: uri
+                    example: "https://urlshortener-cj8y.onrender.com/12345"
+
+        "400":
+          description: Returned Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: "Server Error"
+  
