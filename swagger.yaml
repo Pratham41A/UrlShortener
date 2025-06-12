@@ -5,7 +5,6 @@ info:
   version: 1.0.0
 
 servers:
-  - url: http://localhost:3000
   - url: https://urlshortener-cj8y.onrender.com
 paths:
   /:
@@ -46,4 +45,3 @@ paths:
                   error:
                     type: string
                     example: "Server Error"
-  
